@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogos - Presente Pâmela</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/games.css">
+</head>
+<body>
+    <div class="games-container">
+        <!-- Jogo da Memória -->
+<section class="game-section" id="memoryGame">
+    <div class="game-intro">
+        <h2>Desafio da Memória</h2>
+        <p>Pâmela, você vive esquecendo as coisas… então toma esse presente pra treinar a memória 😂🧠</p>
+        <div class="difficulty-buttons">
+            <button class="game-button" data-difficulty="easy">Fácil (4 pares)</button>
+            <button class="game-button" data-difficulty="medium">Médio (6 pares)</button>
+            <button class="game-button" data-difficulty="hard">Difícil (8 pares)</button>
+        </div>
+    </div>
+    
+    <div class="memory-game" style="display:none;">
+        <div class="memory-header">
+            <span class="timer">00:00</span>
+            <span class="moves">0 jogadas</span>
+        </div>
+        <div class="memory-board" id="memoryBoard"></div>
+        
+<div class="memory-result" id="memoryResult">
+    <h3>🎉 Parabéns, Pâmela!</h3>
+    <p class="result-message"></p>
+    <p class="stats"></p>
+    <div class="action-buttons">
+        <button class="action-button" id="playAgain">Jogar Novamente</button>
+        <button class="action-button" id="changeDifficulty">Mudar Dificuldade</button>
+    </div>
+</div>
+    </div>
+</section>
+    <script src="scripts/main.js"></script>
+    <script src="scripts/memory-game.js"></script>
+    <script src="scripts/soccer-game.js"></script>
+</body>
+</html>

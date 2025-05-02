@@ -1,0 +1,137 @@
+:root {
+    --primary: #ff6b9d;
+    --secondary: #ffb8d1;
+    --dark: #1a1a2e;
+    --light: #f8f9fa;
+    --bg-gradient: linear-gradient(135deg, #16213e, #0f3460);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--bg-gradient);
+    color: var(--light);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+}
+
+.container {
+    text-align: center;
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.message {
+    margin-bottom: 40px;
+    animation: fadeIn 1.5s ease-out;
+}
+
+h1 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: var(--secondary);
+    text-shadow: 0 0 10px rgba(255, 184, 209, 0.6);
+}
+
+.stars {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.star {
+    font-size: 1.5rem;
+    color: var(--primary);
+    animation: pulse 2s infinite;
+    opacity: 0.8;
+}
+
+.gift-box {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    margin: 0 auto;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.gift-box img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: all 0.5s ease;
+}
+
+.gift-box .closed {
+    z-index: 2;
+    animation: float 3s ease-in-out infinite;
+}
+
+.gift-box .open {
+    z-index: 1;
+    opacity: 0;
+    transform: scale(0.8);
+}
+
+.hidden-message {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 1s ease;
+    margin-top: 30px;
+}
+
+.hidden-message.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.hidden-message h2 {
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin-bottom: 10px;
+    text-shadow: 0 0 15px rgba(255, 107, 157, 0.7);
+}
+
+.hidden-message p {
+    font-size: 1.2rem;
+    color: var(--secondary);
+}
+
+/* Animações */
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(1.2); opacity: 1; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Efeito de brilho */
+.gift-box:hover {
+    filter: drop-shadow(0 0 15px var(--primary));
+}
+
+/* Responsivo */
+@media (max-width: 600px) {
+    h1 { font-size: 1.5rem; }
+    .gift-box { width: 200px; height: 200px; }
+    .hidden-message h2 { font-size: 2rem; }
+}

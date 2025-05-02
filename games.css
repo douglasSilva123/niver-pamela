@@ -1,0 +1,259 @@
+:root {
+    --primary: #ff6b9d;
+    --secondary: #ffb8d1;
+    --dark: #1a1a2e;
+    --light: #f8f9fa;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, var(--dark), #0f3460);
+    color: var(--light);
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+.games-container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.game-section {
+    background: rgba(26, 26, 46, 0.8);
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* Estilos do Jogo da Memória */
+.memory-game {
+    display: none; /* Inicialmente escondido */
+    margin-top: 20px;
+}
+
+.memory-board {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin: 0 auto;
+    max-width: 500px;
+}
+
+.memory-card {
+    aspect-ratio: 1;
+    background: linear-gradient(45deg, #25254b, #1a1a2e);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: all 0.5s ease;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+}
+
+.memory-card .card-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.memory-card .front-face {
+    background: white;
+    transform: rotateY(180deg);
+    font-size: 2rem;
+}
+
+.memory-card .back-face {
+    background: var(--primary);
+    color: white;
+    font-size: 1.5rem;
+}
+
+.memory-card.flipped {
+    transform: rotateY(180deg);
+}
+
+.memory-card.matched {
+    transform: rotateY(180deg);
+    box-shadow: 0 0 15px #4caf50;
+}
+
+.game-result {
+    display: none;
+    margin-top: 20px;
+    padding: 15px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 10px;
+}
+
+/* Botões */
+.start-button, .home-button {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-family: 'Poppins';
+    font-weight: 600;
+    margin: 10px;
+    transition: all 0.3s ease;
+}
+
+.start-button:hover, .home-button:hover {
+    background: #ff4785;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(255,107,157,0.4);
+}
+
+@media (max-width: 600px) {
+    .memory-board {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+/* Adicione estas regras ao seu CSS existente */
+
+.difficulty-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin: 20px 0;
+    flex-wrap: wrap;
+}
+
+.game-button {
+    background: rgba(255, 107, 157, 0.2);
+    color: var(--secondary);
+    border: 2px solid var(--primary);
+    padding: 10px 15px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-family: 'Poppins';
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.game-button:hover {
+    background: var(--primary);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.memory-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    color: var(--secondary);
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.memory-result {
+    background: rgba(26, 26, 46, 0.9);
+    padding: 20px;
+    border-radius: 15px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.memory-result h3 {
+    color: var(--primary);
+    margin-bottom: 10px;
+}
+
+.result-message {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: var(--secondary);
+}
+
+.stats {
+    color: var(--light);
+    opacity: 0.8;
+    margin-bottom: 15px;
+}
+
+/* Animação para cartas erradas */
+@keyframes shake {
+    0%, 100% { transform: rotateY(180deg) translateX(0); }
+    20% { transform: rotateY(180deg) translateX(-5px); }
+    40% { transform: rotateY(180deg) translateX(5px); }
+    60% { transform: rotateY(180deg) translateX(-5px); }
+    80% { transform: rotateY(180deg) translateX(5px); }
+}
+
+.memory-card.wrong {
+    animation: shake 0.5s;
+}
+
+/* Confete */
+/*@keyframes fall {
+    to { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+}*/
+/* Estilização para os novos botões */
+.action-button {
+    background: linear-gradient(45deg, #ff6b9d, #ff8fab);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 1rem;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    box-shadow: 0 4px 10px rgba(255, 107, 157, 0.3);
+    margin: 10px 5px;
+    position: relative;
+    overflow: hidden;
+}
+
+.action-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(255, 107, 157, 0.4);
+}
+
+.action-button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #ff4785, #ffb8d1);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+}
+
+.action-button:hover::after {
+    opacity: 1;
+}
+
+/* Container para os botões de ação */
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+/* Efeito de brilho simples */
+@keyframes glow {
+    0% { box-shadow: 0 0 5px #ff6b9d; }
+    50% { box-shadow: 0 0 20px #ff6b9d; }
+    100% { box-shadow: 0 0 5px #ff6b9d; }
+}
+
+.memory-result {
+    animation: glow 2s ease-in-out;
+}
